@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Tiền Sản Phẩm</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { border-collapse: collapse; width: 400px; margin-bottom: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+        th { background: #f0f0f0; }
+        input[type="number"] { width: 60px; }
+        #total { font-size: 18px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Tính Tiền Sản Phẩm</h2>
+    <form id="orderForm" onsubmit="return false;">
+        <table>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Đơn giá (đ)</th>
+                <th>Số lượng</th>
+            </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+                </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+                </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+                </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+                </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+                </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+                </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+                </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+                </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+                </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+            <tr>
+            </tr>
+                <td></td>
+                <td id="price"></td>
+                <td><input type="number" id="" min="0" value="0"></td>
+            <tr>
+                <td>mì kokomi</td>
+                <td id="priceA">3000</td>
+                <td><input type="number" id="qtyA" min="0" value="0"></td>
+            </tr>
+            <tr>
+                <td>mì hảo hảo</td>
+                <td id="priceB">5000</td>
+                <td><input type="number" id="qtyB" min="0" value="0"></td>
+            </tr>
+            <tr>
+                <td>mì omachi</td>
+                <td id="priceC">9000</td>
+                <td><input type="number" id="qtyC" min="0" value="0"></td>
+            </tr>
+            <tr>
+                <td>bim bim 5k</td>
+                <td id="priceD">5000</td>
+                <td><input type="number" id="qtyD" min="0" value="0"></td>
+            </tr>
+            <tr>
+                <td>bim bim 2k</td>
+                <td id="priceE">2000</td>
+                <td><input type="number" id="qtyE" min="0" value="0"></td>
+            </tr>
+            <tr>
+                <td>kẹo mút</td>
+                <td id="priceH">1000</td>
+                <td><input type="number" id="qtyH" min="0" value="0"></td>
+            </tr>
+        </table>
+        <button type="button" onclick="calculateTotal()">Tính tiền</button>
+    </form>
+    <div id="total">Tổng tiền: 0 đ</div>
+
+   <script>
+    function calculateTotal() {
+        // Lấy danh sách các sản phẩm
+        const products = [
+            { priceId: 'priceA', qtyId: 'qtyA' },
+            { priceId: 'priceB', qtyId: 'qtyB' },
+            { priceId: 'priceC', qtyId: 'qtyC' },
+            { priceId: 'priceD', qtyId: 'qtyD' },
+            { priceId: 'priceE', qtyId: 'qtyE' },
+            { priceId: 'priceH', qtyId: 'qtyH' }
+        ];
+        let total = 0;
+        products.forEach(product => {
+            const price = parseInt(document.getElementById(product.priceId).innerText) || 0;
+            const qty = parseInt(document.getElementById(product.qtyId).value) || 0;
+            total += price * qty;
+        });
+        document.getElementById('total').innerText = 'Tổng tiền: ' + total.toLocaleString() + ' đ';
+    }
+</script>
+</body>
+</html>
